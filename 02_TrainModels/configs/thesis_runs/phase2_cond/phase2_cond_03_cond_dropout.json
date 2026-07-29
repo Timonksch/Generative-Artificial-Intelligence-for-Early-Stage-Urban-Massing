@@ -1,0 +1,64 @@
+{
+  "name": "phase2_cond_03_cond_dropout",
+  "description": "Sweep ueber Conditioning-Dropout bei fixierter Phase-II-Referenz und konstanter Loss-Balance.",
+  "global": {
+    "data_root": "00_Data/02_GeneratedDatasets/dataset_thesis",
+    "split_manifest": "00_Data/02_GeneratedDatasets/dataset_thesis/report_split.json",
+    "epochs": 10,
+    "batch_size": 2,
+    "accum_steps": 2,
+    "lr": 0.0007,
+    "optimizer": "adamw",
+    "weight_decay": 0.01,
+    "lr_schedule": "cosine",
+    "seed": 42,
+    "num_workers": 0,
+    "downsample_stride": 4,
+    "crop_size": 0,
+    "add_coords": false,
+    "auto_thresh": true,
+    "thresh_grid": [
+      0.40,
+      0.45,
+      0.50,
+      0.55,
+      0.60
+    ],
+    "tta": false,
+    "early_stop_patience": 0,
+    "log_every": 6,
+    "save_every": 4,
+    "vis_every": 5,
+    "grad_clip": 1.0,
+    "base_ch": 12,
+    "depth": 4,
+    "surface_weight": 1.0,
+    "volume_reg_weight": 0.1,
+    "cond_dim": 3,
+    "cond_select": [
+      0,
+      1,
+      2
+    ]
+  },
+  "overrides": [
+    {
+      "model": "cond_unet",
+      "run_name": "phase2_drop_p00",
+      "description": "Kein Conditioning-Dropout; prueft, ob das FiLM-Conditioning ohne Stochastik bereits stabil generalisiert.",
+      "cond_drop": 0.0
+    },
+    {
+      "model": "cond_unet",
+      "run_name": "phase2_drop_p005",
+      "description": "Leichtes Conditioning-Dropout 0.05 als konservative Regularisierung zwischen vollstaendigem Conditioning und staerkerem Masking.",
+      "cond_drop": 0.05
+    },
+    {
+      "model": "cond_unet",
+      "run_name": "phase2_drop_p010",
+      "description": "Dropout 0.10 als Phase-II-Standardwert fuer den FiLM-Conditioning-Pfad.",
+      "cond_drop": 0.1
+    }
+  ]
+}

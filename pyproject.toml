@@ -1,0 +1,96 @@
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers -ra"
+minversion = "8.3"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [
+  "**/__pycache__",
+  ".venv",
+  "venv",
+]
+
+[tool.ruff.lint]
+select = [
+  "B",
+  "C4",
+  "D",
+  "E",
+  "F",
+  "I",
+  "N",
+  "PERF",
+  "PL",
+  "RUF",
+  "S",
+  "SIM",
+  "UP",
+  "W",
+]
+ignore = [
+  "D203",
+  "D213",
+  # CI can enable Ruff preview rules such as PLR0917. Non-preview local runs
+  # would otherwise flag the matching compatibility noqa directives as unused.
+  "RUF100",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+# Scientific model APIs intentionally expose explicit tensor dimensions and
+# hyperparameters. Their contracts are documented at module/package level;
+# changing these signatures or splitting validated training loops would alter
+# checkpoint and experiment behavior without adding scientific value.
+"02_TrainModels/**/*.py" = [
+  "D101",
+  "D102",
+  "D103",
+  "D105",
+  "D107",
+  "N812",
+  "PLR0912",
+  "PLR0913",
+  "PLR0915",
+  "PLR2004",
+]
+
+[tool.ruff.format]
+docstring-code-format = true
+indent-style = "space"
+line-ending = "lf"
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.11"
+mypy_path = ["01_CreateDataset"]
+strict = true
+# The documented command checks test contracts. Imported application modules
+# are linted separately and contribute types without duplicating their errors.
+follow_imports = "silent"
+warn_return_any = true
+warn_unused_configs = true
+no_implicit_reexport = true
+show_error_codes = true
+pretty = true
+exclude = [
+  '(^|/)venv/',
+  '(^|/)\.venv/',
+]
+
+[tool.coverage.run]
+branch = true
+source = [
+  "01_CreateDataset",
+  "02_TrainModels",
+  "03_visuals",
+]
+
+[tool.coverage.report]
+exclude_also = [
+  "if TYPE_CHECKING:",
+  "if __name__ == .__main__.:",
+  "raise NotImplementedError",
+]
+show_missing = true

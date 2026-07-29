@@ -1,0 +1,45 @@
+{
+  "name": "phase1_final",
+  "description": "Final 50-epoch rerun for Phase 1 based on the best ablation under the shared Phase-1 evaluation protocol.",
+  "global": {
+    "data_root": "00_Data/02_GeneratedDatasets/dataset_thesis",
+    "split_manifest": "00_Data/02_GeneratedDatasets/dataset_thesis/report_split.json",
+    "epochs": 50,
+    "batch_size": 2,
+    "accum_steps": 2,
+    "lr": 0.0007,
+    "optimizer": "adamw",
+    "weight_decay": 0.01,
+    "lr_schedule": "cosine",
+    "seed": 42,
+    "num_workers": 4,
+    "downsample_stride": 4,
+    "crop_size": 0,
+    "add_coords": false,
+    "auto_thresh": true,
+    "thresh_grid": [
+      0.40,
+      0.45,
+      0.50,
+      0.55,
+      0.60
+    ],
+    "tta": false,
+    "early_stop_patience": 0,
+    "log_every": 5,
+    "save_every": 10,
+    "vis_every": 5,
+    "grad_clip": 1.0,
+    "surface_weight": 1.0,
+    "volume_reg_weight": 0.1
+  },
+  "overrides": [
+    {
+      "model": "unet",
+      "run_name": "phase1_final_capacity_down",
+      "description": "Final rerun of the best Phase-1 validation-IoU ablation: compact depth-3 UNet with base_ch=12 and automatic threshold calibration.",
+      "base_ch": 12,
+      "depth": 3
+    }
+  ]
+}

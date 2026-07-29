@@ -1,0 +1,79 @@
+{
+  "name": "phase3_ldm_02_vae_capacity",
+  "description": "Stage-A capacity sweep at the retained latent geometry. Selection is based on minimum validation L_VAE.",
+  "global": {
+    "data_root": "00_Data/02_GeneratedDatasets/dataset_thesis",
+    "split_manifest": "00_Data/02_GeneratedDatasets/dataset_thesis/report_split.json",
+    "epochs": 10,
+    "batch_size": 2,
+    "accum_steps": 4,
+    "lr": 0.0003,
+    "optimizer": "adamw",
+    "weight_decay": 0.01,
+    "lr_schedule": "cosine",
+    "seed": 42,
+    "num_workers": 4,
+    "downsample_stride": 4,
+    "crop_size": 0,
+    "add_coords": false,
+    "early_stop_patience": 0,
+    "log_every": 10,
+    "save_every": 0,
+    "vis_every": 0,
+    "grad_clip": 1.0,
+    "auto_thresh": true,
+    "thresh_grid": [
+      0.40,
+      0.45,
+      0.50,
+      0.55,
+      0.60
+    ],
+    "cond_select": [
+      0,
+      1,
+      2
+    ],
+    "cond_drop": 0.0,
+    "mode": "vae_pretrain",
+    "input_res": 64,
+    "latent_res": 16,
+    "latent_channels": 4,
+    "vae_base_ch": 32,
+    "kl_weight": 0.0003,
+    "kl_anneal_epochs": 10,
+    "sample_every": 0,
+    "num_sample_batches": 2,
+    "num_sample_conds": 2,
+    "ema_sample_start": 30
+  },
+  "overrides": [
+    {
+      "model": "ldm",
+      "run_name": "phase3_ldm_vae_lat16_ch4_base32",
+      "description": "Capacity reference at latent 16^3 with the baseline width."
+    },
+    {
+      "model": "ldm",
+      "run_name": "phase3_ldm_vae_lat16_ch4_base24",
+      "description": "Lean VAE variant with reduced encoder-decoder width.",
+      "vae_base_ch": 24
+    },
+    {
+      "model": "ldm",
+      "run_name": "phase3_ldm_vae_lat16_ch4_base48",
+      "description": "Wider VAE with more decoder capacity for sharper reconstructions.",
+      "vae_base_ch": 48,
+      "batch_size": 1,
+      "accum_steps": 4
+    },
+    {
+      "model": "ldm",
+      "run_name": "phase3_ldm_vae_lat16_ch8_base32",
+      "description": "Higher latent channel capacity at fixed spatial latent resolution.",
+      "latent_channels": 8,
+      "batch_size": 1,
+      "accum_steps": 4
+    }
+  ]
+}

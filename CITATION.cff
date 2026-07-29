@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite the repository and the associated
+  master's thesis.
+title: Generative Artificial Intelligence for Early-Stage Urban Massing
+type: software
+authors:
+  - family-names: Nikisch
+    given-names: Timo
+version: 0.1.0
+date-released: 2026-06-21
+license: MIT
+keywords:
+  - urban massing
+  - generative artificial intelligence
+  - 3D U-Net
+  - latent diffusion
+  - voxel data
+  - urban planning

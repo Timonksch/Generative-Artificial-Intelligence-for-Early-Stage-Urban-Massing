@@ -1,0 +1,59 @@
+{
+  "name": "phase1_07_manual_thresh",
+  "description": "Phase 1 finale: fixer Schwellenwert (0.5) als Vergleich zum Auto-Threshold, jeweils ohne/mit Koordinatenkanälen.",
+  "global": {
+    "data_root": "00_Data/02_GeneratedDatasets/dataset_thesis",
+    "split_manifest": "00_Data/02_GeneratedDatasets/dataset_thesis/report_split.json",
+    "epochs": 10,
+    "batch_size": 2,
+    "accum_steps": 2,
+    "lr": 0.0007,
+    "optimizer": "adamw",
+    "weight_decay": 0.01,
+    "lr_schedule": "cosine",
+    "seed": 42,
+    "num_workers": 4,
+    "downsample_stride": 4,
+    "crop_size": 0,
+    "add_coords": false,
+    "auto_thresh": true,
+    "thresh_grid": [
+      0.40,
+      0.45,
+      0.50,
+      0.55,
+      0.60
+    ],
+    "tta": false,
+    "early_stop_patience": 0,
+    "log_every": 5,
+    "save_every": 10,
+    "vis_every": 5,
+    "grad_clip": 1.0
+  },
+  "overrides": [
+    {
+      "model": "unet",
+      "run_name": "phase1_local_manual_thresh",
+      "description": "Baseline geometry with fixed 0.5 thresholding instead of auto selection.",
+      "auto_thresh": false,
+      "thresh_grid": [
+        0.5
+      ],
+      "base_ch": 16,
+      "depth": 4
+    },
+    {
+      "model": "unet",
+      "run_name": "phase1_local_manual_thresh_coords",
+      "description": "Fixed-threshold evaluation combined with coordinate channels for consistency checks.",
+      "auto_thresh": false,
+      "thresh_grid": [
+        0.5
+      ],
+      "add_coords": true,
+      "base_ch": 16,
+      "depth": 4
+    }
+  ]
+}

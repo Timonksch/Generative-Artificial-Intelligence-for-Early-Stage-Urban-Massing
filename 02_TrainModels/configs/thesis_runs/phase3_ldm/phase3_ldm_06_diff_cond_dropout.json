@@ -1,0 +1,82 @@
+{
+  "name": "phase3_ldm_06_diff_cond_dropout",
+  "description": "Stage-B classifier-free conditioning dropout sweep. Configured for the retained Stage-A final VAE at latent_res=32 with the corresponding frozen checkpoint. Selection is based on minimum validation L_diff.",
+  "global": {
+    "data_root": "00_Data/02_GeneratedDatasets/dataset_thesis",
+    "split_manifest": "00_Data/02_GeneratedDatasets/dataset_thesis/report_split.json",
+    "epochs": 10,
+    "batch_size": 2,
+    "accum_steps": 4,
+    "lr": 0.0002,
+    "optimizer": "adamw",
+    "weight_decay": 0.01,
+    "lr_schedule": "cosine",
+    "seed": 42,
+    "num_workers": 6,
+    "downsample_stride": 4,
+    "crop_size": 0,
+    "add_coords": false,
+    "early_stop_patience": 0,
+    "log_every": 10,
+    "save_every": 0,
+    "vis_every": 5,
+    "grad_clip": 1.0,
+    "auto_thresh": true,
+    "thresh_grid": [
+      0.40,
+      0.45,
+      0.50,
+      0.55,
+      0.60
+    ],
+    "cond_select": [
+      0,
+      1,
+      2
+    ],
+    "cond_drop": 0.05,
+    "mode": "diffusion",
+    "input_res": 64,
+    "latent_res": 32,
+    "latent_channels": 4,
+    "vae_base_ch": 32,
+    "kl_weight": 0.0,
+    "kl_anneal_epochs": 0,
+    "diff_base_ch": 64,
+    "diff_depth": 3,
+    "time_dim": 256,
+    "train_timesteps": 1000,
+    "noise_schedule": "cosine",
+    "sampler": "ddim",
+    "sample_timesteps": 100,
+    "ddim_eta": 0.0,
+    "cfg_scale": 2.0,
+    "ema": true,
+    "ema_decay": 0.999,
+    "vae_checkpoint": "02_TrainModels/outputs/thesis_runs/architecture_phase3_ldm/phase3_final_vae/phase3_final_vae_lat32_ch4_base32_beta3e-4/best.pt",
+    "sample_every": 5,
+    "num_sample_batches": 2,
+    "num_sample_conds": 3,
+    "ema_sample_start": 5
+  },
+  "overrides": [
+    {
+      "model": "ldm",
+      "run_name": "phase3_ldm_diff_drop002",
+      "description": "Very low cond_drop to keep maximal conditioning while still exposing an unconditional branch.",
+      "cond_drop": 0.02
+    },
+    {
+      "model": "ldm",
+      "run_name": "phase3_ldm_diff_drop005",
+      "description": "Conservative default for Phase III: small but stable classifier-free dropout.",
+      "cond_drop": 0.05
+    },
+    {
+      "model": "ldm",
+      "run_name": "phase3_ldm_diff_drop010",
+      "description": "Earlier higher dropout level as a direct regularisation comparison.",
+      "cond_drop": 0.10
+    }
+  ]
+}
