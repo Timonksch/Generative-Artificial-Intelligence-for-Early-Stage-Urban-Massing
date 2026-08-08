@@ -2,6 +2,13 @@
 
 # Generative Artificial Intelligence for Early-Stage Urban Massing
 
+<p align="left">
+  <a href="https://github.com/Timonksch/Generative-Artificial-Intelligence-for-Early-Stage-Urban-Massing/actions/workflows/quality.yml"><img src="https://shieldcn.dev/badge/checks-pytest%20%7C%20ruff%20%7C%20mypy-18181B.svg?logo=githubactions&logoColor=white" alt="Checks: pytest, ruff, mypy"></a>
+  <a href="LICENSE"><img src="https://shieldcn.dev/badge/license-MIT-16A34A.svg" alt="MIT license"></a>
+  <a href=".python-version"><img src="https://shieldcn.dev/badge/python-3.11-3776AB.svg?logo=python&logoColor=white" alt="Python 3.11"></a>
+  <a href="Generative%20Artificial%20Intelligence%20for%20Early-Stage%20Urban%20Massing_TimoNikisch_Public.pdf"><img src="https://shieldcn.dev/badge/thesis-PDF-B91C1C.svg?logo=adobeacrobatreader&logoColor=white" alt="Public thesis PDF"></a>
+</p>
+
 Research code accompanying a master's thesis on context-aware, voxel-based
 generation of parcel-scale urban massing in Berlin. The repository covers the
 complete experimental workflow: dataset construction, three model phases,
@@ -113,6 +120,9 @@ to the repository root.
 
 ## External research artifacts
 
+The public thesis manuscript is included as
+[`Generative Artificial Intelligence for Early-Stage Urban Massing_TimoNikisch_Public.pdf`](Generative%20Artificial%20Intelligence%20for%20Early-Stage%20Urban%20Massing_TimoNikisch_Public.pdf).
+
 Large datasets and model weights are distributed separately from the source
 repository. [ARTIFACTS.md](ARTIFACTS.md) defines the release contents, expected
 local restore paths, public R2 manifest, and restore workflow.
@@ -152,7 +162,9 @@ mypy tests
 ## Citation
 
 Software citation metadata is provided in [CITATION.cff](CITATION.cff). The
-external artifact location used for this submission is documented in
+associated public thesis PDF is available in
+[`Generative Artificial Intelligence for Early-Stage Urban Massing_TimoNikisch_Public.pdf`](Generative%20Artificial%20Intelligence%20for%20Early-Stage%20Urban%20Massing_TimoNikisch_Public.pdf).
+The external artifact location used for this submission is documented in
 [ARTIFACTS.md](ARTIFACTS.md).
 
 ## License
