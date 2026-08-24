@@ -1,0 +1,55 @@
+{
+  "parcel_id": "DEBE00YY2Y8000FY",
+  "grid": {
+    "grid_m": 128.0,
+    "voxel_m": 0.5,
+    "D": 256,
+    "H": 256,
+    "W": 256
+  },
+  "world_bbox_xy": [
+    398804.8765757618,
+    5815702.951654541,
+    398932.8765757618,
+    5815830.951654541
+  ],
+  "z_world_range": [
+    30.017000000000003,
+    158.017
+  ],
+  "max_height_m": 128.0,
+  "target_z_grid": [
+    10,
+    32
+  ],
+  "channels": [
+    "C0_build_mask",
+    "C1_neighbor_height",
+    "C2_parcel_edges",
+    "C3_street_mask"
+  ],
+  "metrics": {
+    "c1_mean": 0.0011072150664404035,
+    "c1_max": 0.04033593833446503,
+    "target_voxels": 11506,
+    "neighbor_voxels": 19544,
+    "num_neighbors": 2,
+    "parcel_area_m2": 123.44323150305073,
+    "target_footprint_area_m2": 123.44323150305074,
+    "coverage_frac": 1.0000000000000002,
+    "target_height_m": 11.0,
+    "avg_neighbor_height_m": 5.0014999999999965,
+    "street_coverage_frac": 0.086212158203125,
+    "bgf_target_m2": 479.4166666666667,
+    "grz_target": 1.0000000000000002,
+    "gfz_target": 3.8837015268416604,
+    "grz_neighbors": [
+      0.9999999999999998,
+      1.0
+    ],
+    "gfz_neighbors": [
+      3.570666666666665,
+      3.5706666666666655
+    ]
+  }
+}

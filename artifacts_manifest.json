@@ -1,0 +1,125 @@
+{
+  "schema_version": "r2-prefix-manifest-v1",
+  "created_at": "2026-06-27",
+  "bucket": "genaiforearlystageurbanmassing",
+  "s3_endpoint": "https://adecb175189b1b6a8ad72f5a58650667.r2.cloudflarestorage.com",
+  "public_base_url": "https://pub-974ec55907ff42e581f011cd95ef519e.r2.dev",
+  "access": {
+    "public_url_mode": "read-only HTTP object access",
+    "directory_listing": false,
+    "notes": [
+      "Cloudflare R2 public development URLs expose objects only when the exact key is requested.",
+      "Use the prefix entries below with AWS CLI or another S3-compatible client to restore full directories.",
+      "Do not commit Cloudflare API tokens or R2 S3 credentials to the repository."
+    ]
+  },
+  "summary": {
+    "total_size_gib": 101.28,
+    "uploaded_prefixes": [
+      "00_Data/",
+      "02_TrainModels/outputs/"
+    ]
+  },
+  "artifacts": [
+    {
+      "name": "all_data",
+      "kind": "directory-prefix",
+      "description": "Complete data directory used by the thesis workflow, including generated datasets, input-data cache, and archived experiment material.",
+      "local_path": "00_Data/",
+      "r2_prefix": "00_Data/",
+      "s3_uri": "s3://genaiforearlystageurbanmassing/00_Data/",
+      "public_url": "https://pub-974ec55907ff42e581f011cd95ef519e.r2.dev/00_Data/",
+      "files": 41107,
+      "bytes": 36698475552,
+      "size_gib": 34.18,
+      "public_file_index": "file_indexes/all_data.jsonl"
+    },
+    {
+      "name": "generated_thesis_dataset",
+      "kind": "directory-prefix",
+      "description": "Generated thesis voxel dataset with per-parcel NPZ samples and metadata.",
+      "local_path": "00_Data/02_GeneratedDatasets/dataset_thesis/",
+      "r2_prefix": "00_Data/02_GeneratedDatasets/dataset_thesis/",
+      "s3_uri": "s3://genaiforearlystageurbanmassing/00_Data/02_GeneratedDatasets/dataset_thesis/",
+      "public_url": "https://pub-974ec55907ff42e581f011cd95ef519e.r2.dev/00_Data/02_GeneratedDatasets/dataset_thesis/",
+      "files": 26340,
+      "bytes": 28545122093,
+      "size_gib": 26.58,
+      "public_file_index": "file_indexes/generated_thesis_dataset.jsonl"
+    },
+    {
+      "name": "input_data_cache",
+      "kind": "directory-prefix",
+      "description": "Downloaded and cached source input data used to generate the thesis dataset.",
+      "local_path": "00_Data/01_InputData/",
+      "r2_prefix": "00_Data/01_InputData/",
+      "s3_uri": "s3://genaiforearlystageurbanmassing/00_Data/01_InputData/",
+      "public_url": "https://pub-974ec55907ff42e581f011cd95ef519e.r2.dev/00_Data/01_InputData/",
+      "files": 14724,
+      "bytes": 8150654839,
+      "size_gib": 7.59,
+      "public_file_index": "file_indexes/input_data_cache.jsonl"
+    },
+    {
+      "name": "training_outputs",
+      "kind": "directory-prefix",
+      "description": "Complete thesis training outputs, including experiment configs, metrics, visualizations, checkpoints, and selected best checkpoints.",
+      "local_path": "02_TrainModels/outputs/",
+      "r2_prefix": "02_TrainModels/outputs/",
+      "s3_uri": "s3://genaiforearlystageurbanmassing/02_TrainModels/outputs/",
+      "public_url": "https://pub-974ec55907ff42e581f011cd95ef519e.r2.dev/02_TrainModels/outputs/",
+      "files": 9881,
+      "bytes": 72046797981,
+      "size_gib": 67.1,
+      "best_checkpoint_count": 51,
+      "public_file_index": "file_indexes/training_outputs.jsonl"
+    }
+  ],
+  "key_model_checkpoints": [
+    {
+      "name": "phase1_final_unconditional_unet",
+      "local_path": "02_TrainModels/outputs/thesis_runs/architecture_phase1/phase1_final/phase1_final_capacity_down/best.pt",
+      "r2_key": "02_TrainModels/outputs/thesis_runs/architecture_phase1/phase1_final/phase1_final_capacity_down/best.pt",
+      "s3_uri": "s3://genaiforearlystageurbanmassing/02_TrainModels/outputs/thesis_runs/architecture_phase1/phase1_final/phase1_final_capacity_down/best.pt",
+      "public_url": "https://pub-974ec55907ff42e581f011cd95ef519e.r2.dev/02_TrainModels/outputs/thesis_runs/architecture_phase1/phase1_final/phase1_final_capacity_down/best.pt"
+    },
+    {
+      "name": "phase2_final_conditional_unet",
+      "local_path": "02_TrainModels/outputs/thesis_runs/architecture_phase2/phase2_cond_final/phase2_final_drop_p00_tta_rot90/best.pt",
+      "r2_key": "02_TrainModels/outputs/thesis_runs/architecture_phase2/phase2_cond_final/phase2_final_drop_p00_tta_rot90/best.pt",
+      "s3_uri": "s3://genaiforearlystageurbanmassing/02_TrainModels/outputs/thesis_runs/architecture_phase2/phase2_cond_final/phase2_final_drop_p00_tta_rot90/best.pt",
+      "public_url": "https://pub-974ec55907ff42e581f011cd95ef519e.r2.dev/02_TrainModels/outputs/thesis_runs/architecture_phase2/phase2_cond_final/phase2_final_drop_p00_tta_rot90/best.pt"
+    },
+    {
+      "name": "phase3_final_vae",
+      "local_path": "02_TrainModels/outputs/thesis_runs/architecture_phase3_ldm/phase3_final_vae/phase3_final_vae_lat32_ch4_base32_beta3e-4/best.pt",
+      "r2_key": "02_TrainModels/outputs/thesis_runs/architecture_phase3_ldm/phase3_final_vae/phase3_final_vae_lat32_ch4_base32_beta3e-4/best.pt",
+      "s3_uri": "s3://genaiforearlystageurbanmassing/02_TrainModels/outputs/thesis_runs/architecture_phase3_ldm/phase3_final_vae/phase3_final_vae_lat32_ch4_base32_beta3e-4/best.pt",
+      "public_url": "https://pub-974ec55907ff42e581f011cd95ef519e.r2.dev/02_TrainModels/outputs/thesis_runs/architecture_phase3_ldm/phase3_final_vae/phase3_final_vae_lat32_ch4_base32_beta3e-4/best.pt"
+    },
+    {
+      "name": "phase3_final_latent_diffusion",
+      "local_path": "02_TrainModels/outputs/thesis_runs/architecture_phase3_ldm/phase3_final_diff/phase3_final_diff_linear_t1000_base64_depth3_drop002/best.pt",
+      "r2_key": "02_TrainModels/outputs/thesis_runs/architecture_phase3_ldm/phase3_final_diff/phase3_final_diff_linear_t1000_base64_depth3_drop002/best.pt",
+      "s3_uri": "s3://genaiforearlystageurbanmassing/02_TrainModels/outputs/thesis_runs/architecture_phase3_ldm/phase3_final_diff/phase3_final_diff_linear_t1000_base64_depth3_drop002/best.pt",
+      "public_url": "https://pub-974ec55907ff42e581f011cd95ef519e.r2.dev/02_TrainModels/outputs/thesis_runs/architecture_phase3_ldm/phase3_final_diff/phase3_final_diff_linear_t1000_base64_depth3_drop002/best.pt"
+    }
+  ],
+  "restore": {
+    "requirements": [
+      "AWS CLI v2 or another S3-compatible client",
+      "Cloudflare R2 S3 credentials with read access"
+    ],
+    "commands": [
+      "export R2_ENDPOINT=\"https://adecb175189b1b6a8ad72f5a58650667.r2.cloudflarestorage.com\"",
+      "export R2_BUCKET=\"genaiforearlystageurbanmassing\"",
+      "aws s3 sync \"s3://$R2_BUCKET/00_Data\" \"00_Data\" --endpoint-url \"$R2_ENDPOINT\" --region auto",
+      "aws s3 sync \"s3://$R2_BUCKET/02_TrainModels/outputs\" \"02_TrainModels/outputs\" --endpoint-url \"$R2_ENDPOINT\" --region auto"
+    ],
+    "public_http_command": "python download_artifacts.py --public-download",
+    "public_http_default_artifacts": [
+      "all_data",
+      "training_outputs"
+    ]
+  }
+}

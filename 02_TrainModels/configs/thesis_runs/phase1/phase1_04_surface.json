@@ -1,0 +1,53 @@
+{
+  "name": "phase1_04_surface",
+  "description": "Phase 1 step 4: apply surface-weighted loss with and without coordinate channels.",
+  "global": {
+    "data_root": "00_Data/02_GeneratedDatasets/dataset_thesis",
+    "split_manifest": "00_Data/02_GeneratedDatasets/dataset_thesis/report_split.json",
+    "epochs": 10,
+    "batch_size": 2,
+    "accum_steps": 2,
+    "lr": 0.0007,
+    "optimizer": "adamw",
+    "weight_decay": 0.01,
+    "lr_schedule": "cosine",
+    "seed": 42,
+    "num_workers": 4,
+    "downsample_stride": 4,
+    "crop_size": 0,
+    "add_coords": false,
+    "auto_thresh": true,
+    "thresh_grid": [
+      0.40,
+      0.45,
+      0.50,
+      0.55,
+      0.60
+    ],
+    "tta": false,
+    "early_stop_patience": 0,
+    "log_every": 5,
+    "save_every": 10,
+    "vis_every": 5,
+    "grad_clip": 1.0
+  },
+  "overrides": [
+    {
+      "model": "unet",
+      "run_name": "phase1_local_surface_emphasis",
+      "description": "Surface-weighted loss (1.5) to see if boundary emphasis improves masks before HPO.",
+      "surface_weight": 1.5,
+      "base_ch": 16,
+      "depth": 4
+    },
+    {
+      "model": "unet",
+      "run_name": "phase1_local_surface_coords",
+      "description": "Surface-weighted loss with coordinate channels to examine combined effects on boundaries.",
+      "surface_weight": 1.5,
+      "add_coords": true,
+      "base_ch": 16,
+      "depth": 4
+    }
+  ]
+}

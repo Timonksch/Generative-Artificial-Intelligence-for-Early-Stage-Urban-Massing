@@ -1,0 +1,5 @@
+# Model-training runtime dependencies for Python 3.11.
+-r requirements-dataset.txt
+
+torch==2.8.0
+tensorboard>=2.18,<3

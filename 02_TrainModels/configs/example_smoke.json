@@ -1,0 +1,22 @@
+{
+  "name": "smoke_unet",
+  "description": "Minimal command and installation check for the training interface.",
+  "global": {
+    "data_root": "00_Data/02_GeneratedDatasets/dataset_thesis",
+    "split_manifest": "00_Data/02_GeneratedDatasets/dataset_thesis/report_split.json",
+    "epochs": 1,
+    "batch_size": 1,
+    "accum_steps": 1,
+    "num_workers": 0,
+    "max_samples": 8,
+    "seed": 42,
+    "save_every": 1,
+    "log_every": 1
+  },
+  "overrides": [
+    {
+      "model": "unet",
+      "run_name": "smoke_unet"
+    }
+  ]
+}

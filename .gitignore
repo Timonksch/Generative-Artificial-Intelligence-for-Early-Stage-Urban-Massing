@@ -1,0 +1,59 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtual environments and local environment variables
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Packaging output
+build/
+dist/
+*.egg-info/
+
+# Runtime caches and logs
+.cache/
+.artifacts/
+.mplconfig/
+*.log
+runs/
+
+# Large input data. Documentation and curated examples remain trackable.
+00_Data/01_InputData/*
+!00_Data/01_InputData/README.md
+00_Data/02_GeneratedDatasets/*
+!00_Data/02_GeneratedDatasets/README.md
+!00_Data/02_GeneratedDatasets/example_smoke/
+!00_Data/02_GeneratedDatasets/example_smoke/**
+
+# Training and visualization outputs
+02_TrainModels/outputs/
+03_visuals/outputs/
+outputs/
+
+# Model checkpoints are published as external release artifacts.
+*.ckpt
+*.pth
+*.pt
+
+# Local report exports. Curated reports belong in reports/.
+*_local_report/
